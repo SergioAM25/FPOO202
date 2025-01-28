@@ -9,7 +9,7 @@ public class Main {
         double costePorHora = scanner.nextDouble();
 
         double paga = horas * costePorHora;
-        System.out.println("La paga correspondiente es: $" + paga)
+        System.out.println("La paga correspondiente es: $" + paga);
     }
 }
 
