@@ -1,14 +1,14 @@
 public class Main {
     public static void main(String[] args) {
 
-        //Crear la primer instancia o objeto.
-        Spartan masterChief = new Spartan();
+        //Crear la primer instancia u objeto.
+        Spartan masterChief = new Spartan("Chek El Barbaro", 100, 150, "AK-47");
 
         //Usar atributos.
-        masterChief.nombre="Chek El Barbaro";
-        masterChief.salud=100;
-        masterChief.escudo=500;
-        masterChief.armaPrincipal="AK-47";
+        /*masterChief.setNombre();
+        masterChief.setSalud();
+        masterChief.setEscudo();
+        masterChief.setArmaPrincipal();*/
 
         //invocamos los metodos.
         masterChief.mostrarInfo();
@@ -16,15 +16,20 @@ public class Main {
         masterChief.recargarArma(75);
         masterChief.correr(true);
 
+        //usamos get y set para cambiar atributo nombre
+        masterChief.setNombre("Sergio Alvarez");
+        masterChief.mostrarInfo();
+        masterChief.getNombre();
+        System.out.println(masterChief.getNombre());
 
-        //Segunda Instancia
-        Spartan SantiTanque = new Spartan();
+        //Segunda instancia u objeto
+        Spartan SantiTanque = new Spartan("Santi Tanque", 100, 500, "Revolver");
 
         //Usar atributos.
-        SantiTanque.nombre="Santi";
-        SantiTanque.salud=100;
-        SantiTanque.escudo=500;
-        SantiTanque.armaPrincipal="Dos Cuchillos";
+        /*SantiTanque.setNombre();
+        SantiTanque.setSalud();
+        SantiTanque.setEscudo();
+        SantiTanque.setArmaPrincipal();*/
 
         //invocamos los metodos.
         SantiTanque.mostrarInfo();
