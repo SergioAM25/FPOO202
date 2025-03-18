@@ -14,6 +14,5 @@ public class Ejercicio5 {
             }
         }
         System.out.println("La letra '" + letra + "' aparece " + contador + " veces en la frase.");
-        sc.close();
     }
 }
