@@ -67,6 +67,11 @@ public class FormRegistro extends javax.swing.JFrame {
         btnGuardar.setBackground(new java.awt.Color(255, 153, 255));
         btnGuardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setBackground(new java.awt.Color(255, 153, 255));
         btnLimpiar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -151,6 +156,36 @@ public class FormRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        // 1. Obtener los valores de txt
+        String nombre= TxtNombre.getText();
+        String correo= txtCorreo.getText();
+        String contrasena= txtContrasena.getText();
+        
+        // 2. Validar que no envie vacios a BD
+        if(nombre.isEmpty()|| correo.isEmpty()|| contrasena.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios","Error", JOptionPane.ERROR);
+            return;
+        }
+        
+        // 3. Ejecutamos el insert
+        UserCrud crud= new UserCrud();
+        boolean status= crud.crearusuario(nombre, correo, contrasena);
+        
+        // 4. Notificamos status del insert
+        if(status){
+            JOptionPane.showMessageDialog(this, "Usuario Guardado","Exito", JOptionPane.INFORMATION_MESSAGE);
+            }else {
+            JOptionPane.showMessageDialog(this, "No se guardo","Error", JOptionPane.ERROR);
+                    }
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+        private void limpiarCampos(){
+            TxtNombre.setText("");
+            txtCorreo.setText("");
+            txtContrasena.setText("");
+        }
     /**
      * @param args the command line arguments
      */
@@ -184,7 +219,7 @@ public class FormRegistro extends javax.swing.JFrame {
                 new FormRegistro().setVisible(true);
             }
         });
-    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TxtNombre;
